@@ -123,7 +123,7 @@ const Calendar = () => {
                   onClick={() => handleTaskClick(task)}
                 >
                   {task.title}
-                  {task.isCompleted && <span className="material-icons">check</span>}
+                  {task.isCompleted && <span className="material-icons"></span>}
                 </button>
               ))}
             </div>
