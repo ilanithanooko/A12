@@ -81,7 +81,7 @@ const MyTasks = () => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="border border-purple-300 rounded p-2"
+            className="border border-purple-300 rounded p-2 text-sm lg:text-lg w-2 lg:w-20"
           >
             <option value="">Sort By...</option>
             <option value="title-asc">A-Z</option>
@@ -96,7 +96,7 @@ const MyTasks = () => {
           <select
             value={selectByPriority}
             onChange={(e) => setSortByPriority(e.target.value)}
-            className="border border-purple-300 rounded p-2"
+            className="border border-purple-300 rounded p-2 w-2"
           >
             <option value="">Priority</option>
             <option value="low">Low</option>
@@ -107,7 +107,7 @@ const MyTasks = () => {
           <select
             value={selectByType}
             onChange={(e) => setSortByType(e.target.value)}
-            className="border border-purple-300 rounded p-2"
+            className="border border-purple-300 rounded p-2 w-2"
           >
             <option value="">Category</option>
             <option value="personal">Personal</option>
@@ -119,7 +119,7 @@ const MyTasks = () => {
             onClick={clearSearch}
             className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
           >
-            Clear Search
+            Clear
           </button>
         </div>
       </div>
