@@ -12,10 +12,11 @@ const Calendar = () => {
   const [selectedTask, setSelectedTask] = useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isFadeIn, setIsFadeIn] = useState(false);
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await fetch("/api/tasks", {
+      const response = await fetch(`${BACKEND_URL}/api/tasks`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

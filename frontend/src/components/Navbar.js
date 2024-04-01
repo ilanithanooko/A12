@@ -40,8 +40,8 @@ const Navbar = ({ sideBarToggle, setSideBarToggle }) => {
     <nav className=" bg-violet-200 dark:bg-violet-950 px-4 py-3 flex justify-between">
       <div className="flex items-center text-xl">
         <FaBars
-          className="text-violet-950 dark:text-violet-300 dark:hover:text-violet-200 me-4 cursor-pointer hover:text-violet-800"
-          onClick={() => setSideBarToggle(!sideBarToggle)}
+          className={`${sideBarToggle ? "fixed left-4" : ""} text-violet-950 dark:text-violet-300 dark:hover:text-violet-200 me-4 cursor-pointer hover:text-violet-800`}
+          onClick={() => setSideBarToggle(sideBarToggle)}
         ></FaBars>
       </div>
 

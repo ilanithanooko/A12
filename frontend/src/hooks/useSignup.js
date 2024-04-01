@@ -5,6 +5,7 @@ export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const signup = async (email, password, fullName, age) => {
     setIsLoading(true);
@@ -12,7 +13,7 @@ export const useSignup = () => {
 
     const userData = { email, password, fullName};
 
-    const response = await fetch('/api/user/signup', {
+    const response = await fetch(`${BACKEND_URL}/api/user/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData), // Pass the additional fields in the request body

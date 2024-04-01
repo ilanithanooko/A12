@@ -9,11 +9,12 @@ const ProgressBar = () => {
   const { user } = useAuthContext();
   const allTasks = tasks.length;
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
-  const percentage = Math.round((completedTasks / allTasks) * 100);
+  const percentage = completedTasks==0 ? 0 : Math.round((completedTasks / allTasks) * 100) ;
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await fetch("/api/tasks", {
+      const response = await fetch(`${BACKEND_URL}/api/tasks`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

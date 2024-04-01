@@ -25,6 +25,7 @@ const TaskForm = ({ isOpen, onClose }) => {
   const [priority, setPriority] = useState("");
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
     // Auto-clear error message after 3 seconds
     useEffect(() => {
@@ -60,7 +61,7 @@ const TaskForm = ({ isOpen, onClose }) => {
       priority,
     };
 
-    const response = await fetch("/api/tasks", {
+    const response = await fetch(`${BACKEND_URL}/api/tasks`, {
       method: "POST",
       body: JSON.stringify(task),
       headers: {

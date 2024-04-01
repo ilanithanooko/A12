@@ -26,7 +26,7 @@ const TaskDetails = ({ task, onClose }) => {
   const { user } = useAuthContext();
   const [isEditing, setIsEditing] = useState(false); // Track whether the task is being edited
   const [editedTask, setEditedTask] = useState(task); // Store the edited task details
-
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [titleError, setTitleError] = useState("");
 
   const handleDelete = async () => {
@@ -34,7 +34,7 @@ const TaskDetails = ({ task, onClose }) => {
       return;
     }
     try {
-      const response = await fetch("/api/tasks/" + task._id, {
+      const response = await fetch(`${BACKEND_URL}/api/tasks/` + task._id, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -65,7 +65,7 @@ const TaskDetails = ({ task, onClose }) => {
     };
 
     try {
-      const response = await fetch("/api/tasks/" + task._id, {
+      const response = await fetch(`${BACKEND_URL}/api/tasks/` + task._id, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -100,7 +100,7 @@ const TaskDetails = ({ task, onClose }) => {
     };
 
     try {
-      const response = await fetch("/api/tasks/" + task._id, {
+      const response = await fetch(`${BACKEND_URL}/api/tasks/` + task._id, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -138,7 +138,7 @@ const TaskDetails = ({ task, onClose }) => {
       return;
     }
 
-    const response = await fetch("/api/tasks/" + task._id, {
+    const response = await fetch(`${BACKEND_URL}/api/tasks/` + task._id, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

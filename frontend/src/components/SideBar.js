@@ -13,7 +13,7 @@ const SideBar = ({sideBarToggle}) => {
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   return (
-    <div className={`${sideBarToggle? "hidden" : "block"} w-64 bg-gray-100 dark:bg-slate-900 fixed h-full dark:text-white px-4 py-2`}>
+    <div className={`${sideBarToggle? "hidden lg:block" : "block lg:hidden"}  w-64 bg-gray-100 dark:bg-slate-900 fixed h-full dark:text-white px-4 py-2`}>
       <div>
         <img src={tLetter} className='w-20 mx-auto mt-10 mb-6' alt='Logo'/>
         <hr />
@@ -48,7 +48,7 @@ const SideBar = ({sideBarToggle}) => {
             </Link>
           </li>
         </ul>
-        <TaskForm isOpen={isModalOpen} onClose={toggleModal} />
+        <TaskForm isOpen={isModalOpen} onClose={toggleModal}/>
         <ProgressBar/>
       </div>
 

@@ -16,10 +16,11 @@ const CompletedTasks = () => {
   const [sortBy, setSortBy] = useState("");
   const [selectByPriority, setSortByPriority] = useState(""); // State for sorting by priority
   const [selectByType, setSortByType] = useState(""); // State for sorting by type
-
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await fetch("/api/tasks", {
+      const response = await fetch(`${BACKEND_URL}/api/tasks`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
@@ -125,7 +126,7 @@ const CompletedTasks = () => {
       </div>
       {sortedTasks().filter((task) => task.isCompleted).length == 0 ? (
         <div>
-          <img src={tLetter} className="mx-auto opacity-50" />
+          <img src={tLetter} className="mx-auto" />
           {/* This is when no tasks page */}
         </div>
       ) : (

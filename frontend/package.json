@@ -1,5 +1,5 @@
 {
-  "proxy": "https://a12-ha8o.onrender.com/",
+  "proxy": "https://tictactask-app-api.onrender.com",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
@@ -12,6 +12,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "date-fns": "^2.30.0",
+    "dotenv": "^16.4.5",
     "react": "^18.2.0",
     "react-canvas-confetti": "^1.4.0",
     "react-dom": "^18.2.0",
