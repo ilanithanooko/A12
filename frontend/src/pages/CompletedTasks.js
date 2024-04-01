@@ -3,12 +3,12 @@ import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { BiSortAlt2 } from "react-icons/bi";
 import { FaFilter } from "react-icons/fa";
+import { TbCategoryFilled } from "react-icons/tb";
 import tLetter from "../assets/bigLogo.png";
 
 // Components
 import TaskDetails from "../components/TaskDetails";
-import TaskFrom from "../components/TasksForm";
-import NoTasksImage from "../assets/no-finished-tasks-image.png"; // Import the image
+import TaskForm from "../components/TasksForm";
 
 const CompletedTasks = () => {
   const { tasks, dispatch } = useTasksContext();
@@ -82,7 +82,7 @@ const CompletedTasks = () => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="border border-purple-300 rounded p-2"
+            className="border border-purple-300 rounded p-2 text-sm lg:text-lg w-2 lg:w-40"
           >
             <option value="">Sort By...</option>
             <option value="title-asc">A-Z</option>
@@ -97,7 +97,7 @@ const CompletedTasks = () => {
           <select
             value={selectByPriority}
             onChange={(e) => setSortByPriority(e.target.value)}
-            className="border border-purple-300 rounded p-2"
+            className="border border-purple-300 rounded p-2 w-2 lg:w-40"
           >
             <option value="">Priority</option>
             <option value="low">Low</option>
@@ -105,10 +105,11 @@ const CompletedTasks = () => {
             <option value="high">High</option>
           </select>
 
+          <TbCategoryFilled className="dark:fill-purple-100 inline-block w-6 h-6 mt-2" />
           <select
             value={selectByType}
             onChange={(e) => setSortByType(e.target.value)}
-            className="border border-purple-300 rounded p-2"
+            className="border border-purple-300 rounded p-2 w-2 lg:w-40"
           >
             <option value="">Category</option>
             <option value="personal">Personal</option>
@@ -118,12 +119,15 @@ const CompletedTasks = () => {
           </select>
           <button
             onClick={clearSearch}
-            className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
+            className="px-2 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
           >
-            Clear Search
+            Clear
           </button>
         </div>
       </div>
+
+      <TaskForm/>
+
       {sortedTasks().filter((task) => task.isCompleted).length == 0 ? (
         <div>
           <img src={tLetter} className="mx-auto" />
