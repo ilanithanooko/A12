@@ -135,7 +135,7 @@ const TaskForm = ({ isOpen, onClose }) => {
         <div className=" bg-violet-100 shadow-lg rounded-lg p-4 h-full">
           <div className="flex justify-between">
 
-          <p className="text-xl drop-shadow-md font-semibold text-violet-900 dark:text-white text-center">
+          <p className="text-xl drop-shadow-md font-semibold text-violet-900 text-center">
               Add New Task
             </p>
           <button

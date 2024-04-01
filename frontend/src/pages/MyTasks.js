@@ -3,7 +3,7 @@ import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { BiSortAlt2 } from "react-icons/bi";
 import { FaFilter } from "react-icons/fa";
-import { TbCategoryFilled } from "react-icons/tb";
+import { BiSolidCategoryAlt } from "react-icons/bi";
 import tLetter from "../assets/bigLogo.png";
 
 // Components
@@ -78,7 +78,7 @@ const MyTasks = () => {
     <div className="min-h-screen bg-purple-50 dark:bg-slate-800 p-4">
       <div className="flex justify-between mt-4 bg-purple-50 dark:bg-slate-800 p-4 mb-3">
         <div className="flex">
-          <BiSortAlt2 className="dark:fill-purple-100 inline-block w-6 h-6 mr-1 mt-2" />
+          <BiSortAlt2 className="dark:fill-purple-100 fill-purple-600 inline-block w-6 h-6 mr-1 mt-2" />
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
@@ -93,7 +93,7 @@ const MyTasks = () => {
         </div>
 
         <div className="flex gap-x-4">
-          <FaFilter className="dark:fill-purple-100 inline-block w-6 h-6 -mr-1 mt-2" />
+          <FaFilter className="dark:fill-purple-100 fill-purple-600 inline-block w-6 h-6 -mr-1 mt-2" />
           <select
             value={selectByPriority}
             onChange={(e) => setSortByPriority(e.target.value)}
@@ -105,7 +105,7 @@ const MyTasks = () => {
             <option value="high">High</option>
           </select>
 
-          <TbCategoryFilled className="dark:fill-purple-100 inline-block w-6 h-6 mt-2" />
+          <BiSolidCategoryAlt className="dark:fill-purple-100 fill-purple-600 inline-block w-6 h-6 -mr-1 mt-2" />
           <select
             value={selectByType}
             onChange={(e) => setSortByType(e.target.value)}

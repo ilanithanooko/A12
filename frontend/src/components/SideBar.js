@@ -44,7 +44,7 @@ const SideBar = ({sideBarToggle}) => {
           <li className='mb-2 rounded hover:shadow hover:bg-violet-800 hover:text-white py-2 dark:hover:bg-violet-400 dark:hover:text-violet-950'>
             <Link to="/shareddoc" className='px-3'>
               <FaRegShareSquare  className='inline-block w-6 h-6 mr-2 -mt-2'></FaRegShareSquare>
-              New Shared Document
+              Shared Documents
             </Link>
           </li>
         </ul>
