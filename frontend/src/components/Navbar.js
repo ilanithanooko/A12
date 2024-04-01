@@ -37,7 +37,7 @@ const Navbar = ({ sideBarToggle, setSideBarToggle }) => {
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
   return (
-    <nav className=" bg-violet-200 dark:bg-violet-950 px-4 py-3 flex justify-between items-center">
+    <nav className=" bg-violet-200 dark:bg-violet-950 px-4 py-3 flex justify-between items-center fixed top-0 left-0 right-0 z-50">
       <div className="flex justify-start items-center text-xl">
         <FaBars
           className={`${sideBarToggle ? "fixed left-4" : ""} text-violet-950 dark:text-violet-300 dark:hover:text-violet-200 me-4 cursor-pointer hover:text-violet-800`}
