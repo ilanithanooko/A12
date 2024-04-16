@@ -7,9 +7,14 @@ import { Link } from 'react-router-dom'
 import TaskForm from '../components/TasksForm'
 import ProgressBar from './ProgressBar';
 
+/**
+ * SideBar Component
+ * Renders the sidebar with navigation links and a task form modal.
+ */
 const SideBar = ({sideBarToggle}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Function to toggle the task form modal
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   return (

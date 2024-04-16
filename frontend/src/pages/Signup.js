@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 // import '../style/LoginandSignup.css';
 
+// This component includes form fields for first name, last name, email, and password,
+// along with submit functionality. It also provides a link to navigate to the sign-in page
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

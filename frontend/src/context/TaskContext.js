@@ -1,7 +1,9 @@
 import { createContext, useReducer } from "react";
 
+// Create tasks context
 export const TasksContext = createContext()
 
+// Reducer function to handle tasks state changes
 export const tasksReducer = (state, action) => {
     switch (action.type) {
       case 'SET_TASKS':
@@ -38,6 +40,7 @@ export const tasksReducer = (state, action) => {
     }
   };
   
+  // TasksContextProvider component to manage tasks state
   export const TasksContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(tasksReducer, {
       tasks: [] // Set initial state with an empty array

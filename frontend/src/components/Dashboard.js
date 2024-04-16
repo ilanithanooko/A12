@@ -1,14 +1,14 @@
 import React from 'react'
 import Navbar from './Navbar'
 import { useAuthContext } from "../hooks/useAuthContext";
-import { Routes, Route, Navigate } from "react-router-dom";
-import MainPage from '../pages/Main';
+import { Routes, Route } from "react-router-dom";
 import MyTasks from "../pages/MyTasks";
-import Login from "../pages/Login";
-import Signup from "../pages/Signup";
 import CalendarPage from "../pages/CalendarPage";
 import CompletedTasks from "../pages/CompletedTasks";
 import SharedDoc from '../pages/SharedDoc';
+
+// Dashboard Component
+// Renders the main dashboard layout including navigation bar and routes for different pages.
 
 const Dashboard = ({sideBarToggle, setSideBarToggle}) => {
   const { user } = useAuthContext();

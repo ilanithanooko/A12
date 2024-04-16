@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { format, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, addMonths, addYears, isSameMonth, isSameDay } from "date-fns";
+import { format, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, addMonths, isSameMonth, isSameDay } from "date-fns";
 import "../style/Calendar.css";
 import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
@@ -10,7 +10,11 @@ import { FaArrowRight } from "react-icons/fa";
 import { CgCalendarToday } from "react-icons/cg";
 
 
-
+/**
+ * Calendar Component
+ * Renders a calendar view with tasks for each day.
+ * Allows navigation between months and selection of specific dates.
+ */
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const { tasks, dispatch } = useTasksContext();
@@ -20,6 +24,7 @@ const Calendar = () => {
   const [isFadeIn, setIsFadeIn] = useState(false);
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
+  // Fetch tasks from the backend when the component mounts or when the user changes
   useEffect(() => {
     const fetchTasks = async () => {
       const response = await fetch(`${BACKEND_URL}/api/tasks`, {
@@ -39,6 +44,7 @@ const Calendar = () => {
     }
   }, [dispatch, user]);
 
+  // Calculate start and end dates for the current month
   const monthStart = startOfMonth(currentDate);
   const monthEnd = endOfMonth(monthStart);
   const startDate = startOfWeek(monthStart);
@@ -46,6 +52,7 @@ const Calendar = () => {
   const days = [];
   let day = startDate;
 
+  // Create an array of days in the month
   while (day <= endDate) {
     days.push(day);
     day = addDays(day, 1);
@@ -56,6 +63,7 @@ const Calendar = () => {
     return tasksForDay;
   };
 
+  // Open task details popup on task click
   const handleTaskClick = (task) => {
     setSelectedTask(task);
     setIsPopupVisible(true);

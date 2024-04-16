@@ -7,11 +7,14 @@ import ticTacTask from "../assets/tictactask.png";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+// Navbar Component
+// Renders the navigation bar with options to toggle dark mode, display user information, and logout.
 const Navbar = ({ sideBarToggle, setSideBarToggle }) => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
   const navigate = useNavigate();
 
+  // State for dark mode toggle
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return (
       localStorage.getItem("theme") === "dark" ||
@@ -19,11 +22,14 @@ const Navbar = ({ sideBarToggle, setSideBarToggle }) => {
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     );
   });
+
+  // Function to handle logout
   const handleClick = () => {
     logout();
     navigate("/");
   };
 
+  // Effect to update dark mode state and apply changes
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark");

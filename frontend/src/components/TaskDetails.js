@@ -1,7 +1,7 @@
 import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { format } from "date-fns";
-import { React, Fragment, useState } from "react";
+import { React, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaPerson } from "react-icons/fa6";
 import { IoSchool, IoClose} from "react-icons/io5";
@@ -21,6 +21,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Radio, Input} from "@material-tailwind/react";
 
+/**
+ * TaskDetails Component
+ * Renders task details and provides functionality to edit, save, delete, mark as completed or incomplete.
+ */
 const TaskDetails = ({ task, onClose }) => {
   const { dispatch } = useTasksContext();
   const { user } = useAuthContext();
@@ -29,8 +33,9 @@ const TaskDetails = ({ task, onClose }) => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [titleError, setTitleError] = useState("");
 
+  // Function to handle task deletion
   const handleDelete = async () => {
-    if (!user) {
+    if (!user) {   // Check if the user is authenticated
       return;
     }
     try {
@@ -58,6 +63,7 @@ const TaskDetails = ({ task, onClose }) => {
     }
   };
 
+  // Function to mark a task as incomplete
   const handleUncheckClick = async () => {
     const editedTask = {
       ...task,
@@ -93,6 +99,7 @@ const TaskDetails = ({ task, onClose }) => {
     }, 300); // Delay of 300 milliseconds to match the conffetti duration
   };
 
+  // Function to mark a task as completed
   const handleCheckClick = async () => {
     const editedTask = {
       ...task,
@@ -126,10 +133,12 @@ const TaskDetails = ({ task, onClose }) => {
     }
   };
 
+  // Function to handle task editing
   const handleEdit = () => {
     setIsEditing(true); // Set isEditing to true to switch to edit mode
   };
 
+  // Function to save the edited task
   const handleSave = async () => {
     if (editedTask.title.trim() === "") {
       setTitleError(
@@ -156,12 +165,14 @@ const TaskDetails = ({ task, onClose }) => {
     }
   };
 
+  // Function to cancel editing and discard changes
   const handleCancel = () => {
     setIsEditing(false); // Cancel the edit mode and discard changes
     setEditedTask(task); // Reset the edited task details to the original task
     setTitleError(""); // Reset the title error
   };
 
+  // Function to handle changes in task details during editing
   const handleChange = (e) => {
     setEditedTask({ ...editedTask, [e.target.name]: e.target.value }); // Update the edited task details
   };
@@ -170,6 +181,7 @@ const TaskDetails = ({ task, onClose }) => {
     ? format(new Date(task.deadline), "MMMM dd, yyyy, HH:mm")
     : "";
 
+  // Format the task type icon
   const formatType = (type) => {
     switch (type) {
       case "personal":
@@ -185,6 +197,7 @@ const TaskDetails = ({ task, onClose }) => {
     }
   };
 
+  // Format the task priority icon
   const formatPriority = (level) => {
     switch (level) {
       case "low":

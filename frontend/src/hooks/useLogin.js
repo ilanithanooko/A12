@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { useAuthContext } from "./useAuthContext"
 
+// Custom hook for handling user login
 export const useLogin = () => {
     const [error,setError] = useState(null)
     const [isLoading,setIsLoading] = useState(null)
     const {dispatch} = useAuthContext()
     const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
+    // Function to handle user login
     const login = async (email,password) => {
         setIsLoading(true)
         setError(null)

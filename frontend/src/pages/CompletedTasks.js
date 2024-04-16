@@ -5,10 +5,12 @@ import { BiSortAlt2 } from "react-icons/bi";
 import { FaFilter } from "react-icons/fa";
 import { BiSolidCategoryAlt } from "react-icons/bi";
 import tLetter from "../assets/bigLogo.png";
-
 // Components
 import TaskDetails from "../components/TaskDetails";
 import TaskForm from "../components/TasksForm";
+
+// This component fetches completed tasks, 
+// allows sorting and filtering, and renders the list of completed tasks along with a form to add new tasks.
 
 const CompletedTasks = () => {
   const { tasks, dispatch } = useTasksContext();

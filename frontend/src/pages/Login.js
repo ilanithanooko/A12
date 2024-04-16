@@ -4,6 +4,8 @@ import tLetterLogo from "../assets/t_letter.png";
 import { Link } from 'react-router-dom';
 import { useLogin } from "../hooks/useLogin"
 
+// This component displays a login form, 
+// allows users to sign in, and provides functionality for toggling between light and dark mode.
 const Login = () => {
    
     const [email,setEmail] = useState('')

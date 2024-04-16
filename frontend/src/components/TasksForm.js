@@ -35,15 +35,15 @@ const TaskForm = ({ isOpen, onClose }) => {
       }
     }, [error]); // This effect depends on changes to the error state
   
-
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // Check user authentication
     if (!user) {
       setError("You must be logged in");
       return;
     }
-
+    // Construct task object
     const deadline =
       deadlineDate && deadlineTime
         ? `${deadlineDate} ${deadlineTime}`
@@ -61,6 +61,7 @@ const TaskForm = ({ isOpen, onClose }) => {
       priority,
     };
 
+    // Send POST request to create a new task
     const response = await fetch(`${BACKEND_URL}/api/tasks`, {
       method: "POST",
       body: JSON.stringify(task),
@@ -92,6 +93,7 @@ const TaskForm = ({ isOpen, onClose }) => {
     }
   };
 
+  // functions to format task type and priority
   const formatType = (type) => {
     switch (type) {
       case "personal":
@@ -120,6 +122,7 @@ const TaskForm = ({ isOpen, onClose }) => {
     }
   };
 
+  // Render the form modal
   if (!isOpen) return null; // Don't render the modal if it's not open
 
   return (

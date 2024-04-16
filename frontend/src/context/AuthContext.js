@@ -2,6 +2,7 @@ import { createContext, useReducer, useEffect} from 'react'
 
 export const AuthContext = createContext()
 
+// Reducer function to handle authentication state changes
 export const authReducer = (state, action) => {
     switch (action.type) {
         case 'LOGIN':
@@ -13,12 +14,14 @@ export const authReducer = (state, action) => {
     }
 }
 
-
+// AuthContextProvider component to manage authentication state
 export const AuthContextProvider = ({ children }) => {
+    // Initialize authentication state using reducer
     const [state, dispatch] = useReducer(authReducer, {
         user: null
     })
 
+    // Load user data from local storage on component mount
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'))
 

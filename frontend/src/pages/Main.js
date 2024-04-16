@@ -5,6 +5,9 @@ import flyingRocket from "../assets/Wavy_Bus-03_Single-06.png";
 import { useEffect, useState } from "react";
 import '../style/App.css';
 
+// This component displays the main page content, including the main picture, logo, 
+// a sentence about productivity, and a button to start the login process. 
+// Additionally, it includes functionality for toggling between light and dark mode.
 const MainPage = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return (

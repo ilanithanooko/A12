@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useTasksContext } from "../hooks/useTasksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { Progress, Typography } from "@material-tailwind/react";
 
-
+/**
+ * ProgressBar Component
+ * Renders a progress bar indicating the completion status of tasks.
+ */
 const ProgressBar = () => {
   const { tasks, dispatch } = useTasksContext();
   const { user } = useAuthContext();
+  // Calculate total and completed tasks
   const allTasks = tasks.length;
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
   const percentage = completedTasks==0 ? 0 : Math.round((completedTasks / allTasks) * 100) ;
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
+  // Fetch tasks from the backend when the component mounts or when the user changes
   useEffect(() => {
     const fetchTasks = async () => {
       const response = await fetch(`${BACKEND_URL}/api/tasks`, {
